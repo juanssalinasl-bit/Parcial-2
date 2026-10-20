@@ -28,4 +28,16 @@ public class Repuesto {
     public double getPrecioUD() { return precioUD; }
     public int getCantidadINV() { return cantidadINV; }
     public CategoriaRepuesto getCategoriaRepuesto() { return categoriaRepuesto; }
+
+    public boolean descontar(int cantidad) {
+        if (cantidad <= 0 || cantidad > cantidadINV) return false;
+        cantidadINV -= cantidad;
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return codigo + " | " + nombre + " | " + categoriaRepuesto + " | $"
+                + String.format("%,.0f", precioUD) + " c/u | Existencias: " + cantidadINV;
+    }
 }

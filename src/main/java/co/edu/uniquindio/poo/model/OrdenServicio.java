@@ -29,4 +29,20 @@ public class OrdenServicio {
     public List<DetalleServicio> getListaDetallesServicio() {
         return Collections.unmodifiableList(listaDetallesServicio);
     }
+
+    public void agregarDetalle(DetalleServicio detalle) { listaDetallesServicio.add(detalle); }
+    public void setEstadoOrden(EstadoOrden estadoOrden) { this.estadoOrden = estadoOrden; }
+
+    public double calcularCostoFinal() {
+        double total = 0;
+        for (DetalleServicio detalle : listaDetallesServicio) total += detalle.calcularValorDetalle();
+        return total;
+    }
+
+    @Override
+    public String toString() {
+        return codigo + " | " + fecha + " | Cliente: " + cliente.getNombre()
+                + " | Estado: " + estadoOrden + " | Detalles: " + listaDetallesServicio.size()
+                + " | Total: $" + String.format("%,.0f", calcularCostoFinal());
+    }
 }

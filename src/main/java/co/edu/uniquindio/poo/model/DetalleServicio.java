@@ -38,4 +38,21 @@ public class DetalleServicio {
     public List<RepuestoUtilizado> getRepuestosUtilizados() {
         return Collections.unmodifiableList(repuestosUtilizados);
     }
+
+    public void asignarTecnico(Tecnico tecnico) { this.tecnico = Optional.of(tecnico); }
+    public void agregarRepuesto(RepuestoUtilizado repuesto) { repuestosUtilizados.add(repuesto); }
+    public void setObservacionesTec(String observacionesTec) { this.observacionesTec = observacionesTec; }
+    public void setEstadoDetalle(EstadoDetalle estadoDetalle) { this.estadoDetalle = estadoDetalle; }
+    public double calcularValorDetalle() {
+        return servicio.calcularCosto(equipo, horasTrabajo, repuestosUtilizados);
+    }
+
+    @Override
+    public String toString() {
+        String nombreTecnico = tecnico.map(Tecnico::getNombre).orElse("Sin asignar");
+        return codigo + " | " + equipo.getCodigo() + " " + equipo.getMarca() + " "
+                + equipo.getModelo() + " | " + servicio.getNombre() + " | " + estadoDetalle
+                + " | Técnico: " + nombreTecnico + " | Valor: $"
+                + String.format("%,.0f", calcularValorDetalle());
+    }
 }

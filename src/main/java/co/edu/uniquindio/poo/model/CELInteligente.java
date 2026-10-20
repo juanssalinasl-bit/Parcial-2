@@ -24,4 +24,11 @@ public class CELInteligente extends Equipo {
     public double getCapacidadBateriaMAh() { return capacidadBateriaMAh; }
     public boolean isCompatible5G() { return compatible5G; }
     @Override public TipoEquipo getTipoEquipo() { return TipoEquipo.CELULAR_INTELIGENTE; }
+
+    @Override
+    public String toString() {
+        return super.toString() + " | Sistema: " + tipoSistema + " | Almacenamiento: "
+                + gbAlmacenamiento + " GB | Batería: " + capacidadBateriaMAh
+                + " mAh | 5G: " + (compatible5G ? "Sí" : "No");
+    }
 }

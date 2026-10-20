@@ -24,4 +24,11 @@ public class PCPortatil extends Equipo{
     public double getGbAlmacenamiento() { return gbAlmacenamiento; }
     public boolean isBateriaExtraible() { return bateriaExtraible; }
     @Override public TipoEquipo getTipoEquipo() { return TipoEquipo.PC_PORTATIL; }
+
+    @Override
+    public String toString() {
+        return super.toString() + " | Pantalla: " + tamanoPantalla + " pulgadas | RAM: " + gbRAM
+                + " GB | Almacenamiento: " + gbAlmacenamiento + " GB | Batería extraíble: "
+                + (bateriaExtraible ? "Sí" : "No");
+    }
 }

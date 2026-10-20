@@ -8,6 +8,8 @@ public class Diagnostico extends Servicio {
     }
 
     @Override public TipoServicio getTipoServicio() { return TipoServicio.DIAGNOSTICO; }
-
+    @Override public double calcularCosto(Equipo equipo, int horas, List<RepuestoUtilizado> repuestos) {
+        return getTarifaBase();
+    }
     }
 

@@ -31,4 +31,11 @@ public abstract class Equipo {
     public String getDescripcionEstado() { return descripcionEstado; }
     public Cliente getCliente() { return cliente; }
     public abstract TipoEquipo getTipoEquipo();
+
+    @Override
+    public String toString() {
+        return codigo + " | " + getTipoEquipo() + " | " + marca + " " + modelo
+                + " | Serie: " + numeroSerie + " | Año: " + anioFabricacion.getYear()
+                + " | Cliente: " + cliente.getNombre() + " | Estado físico: " + descripcionEstado;
+    }
 }

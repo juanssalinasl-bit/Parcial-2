@@ -33,4 +33,14 @@ public class Cliente {
     public String getDireccion() { return direccion; }
     public List<Equipo> getListaEquipos() { return Collections.unmodifiableList(listaEquipos); }
     public List<OrdenServicio> getListaOrdenes() { return Collections.unmodifiableList(listaOrdenes); }
+
+
+    public void agregarEquipo(Equipo equipo) { listaEquipos.add(equipo); }
+    public void agregarOrden(OrdenServicio orden) { listaOrdenes.add(orden); }
+
+    @Override
+    public String toString() {
+        return id + " | " + nombre + " | Documento: " + identificacion
+                + " | Teléfono: " + telefono + " | " + correo + " | " + direccion;
+    }
 }

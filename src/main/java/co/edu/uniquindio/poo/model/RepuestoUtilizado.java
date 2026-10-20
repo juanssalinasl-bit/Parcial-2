@@ -16,4 +16,10 @@ public class RepuestoUtilizado {
     public int getCantidad() { return cantidad; }
     public double getPrecioUnitarioAplicado() { return precioUnitarioAplicado; }
     public double calcularCosto() { return cantidad * precioUnitarioAplicado; }
+
+    @Override
+    public String toString() {
+        return repuesto.getNombre() + " x " + cantidad + " | $"
+                + String.format("%,.0f", precioUnitarioAplicado) + " c/u";
+    }
 }

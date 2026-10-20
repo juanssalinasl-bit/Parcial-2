@@ -26,4 +26,18 @@ public class Tecnico {
     public EstadoLaboral getEstadoLaboral() { return estadoLaboral; }
     public String getDireccion() { return direccion; }
     public void setEstadoLaboral(EstadoLaboral estadoLaboral) { this.estadoLaboral = estadoLaboral; }
+
+    public boolean puedeAtender(Equipo equipo) {
+        if (especialidad == Especialidad.SERVICIO_GENERAL) return true;
+        if (equipo.getTipoEquipo() == TipoEquipo.CELULAR_INTELIGENTE) {
+            return especialidad == Especialidad.TELEFONOS;
+        }
+        return especialidad == Especialidad.COMPUTADORES;
+    }
+
+    @Override
+    public String toString() {
+        return id + " | " + nombre + " | Documento: " + identificacion + " | "
+                + especialidad + " | Estado: " + estadoLaboral + " | " + direccion;
+    }
 }

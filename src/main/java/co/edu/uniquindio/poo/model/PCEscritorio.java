@@ -25,4 +25,11 @@ public class PCEscritorio extends Equipo{
     public boolean isGraficaDedicada() { return graficaDedicada; }
     @Override public TipoEquipo getTipoEquipo() { return TipoEquipo.PC_ESCRITORIO; }
 
+    @Override
+    public String toString() {
+        return super.toString() + " | CPU: " + tipoCPU + " | RAM: " + gbRAM
+                + " GB | Almacenamiento: " + gbAlmacenamiento + " GB | Gráfica dedicada: "
+                + (graficaDedicada ? "Sí" : "No");
+    }
+
 }
