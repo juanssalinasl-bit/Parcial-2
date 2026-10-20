@@ -1,4 +1,4 @@
 package co.edu.uniquindio.poo.model;
 
-public enum EstadoTecnico {
+public enum EstadoLaboral {
 }
